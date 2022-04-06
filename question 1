@@ -1,0 +1,58 @@
+/*set serveroutput on*/
+/*begin
+dbms_output.put_line('hello');
+end;*/
+
+/*nested block*/
+/*begin
+dbms_output.put_line('hello'||' '||'world');
+    begin
+    dbms_output.put_line('world');
+    end;
+end;*/
+
+/*variable type*/
+/*declare
+V_name varchar(10):=' students';
+v_var hr.employees.job_title%type;
+begin
+dbms_output.put_line('hello' || V_name);
+end;*/
+
+/* creating table from schema*/
+/*select * from hr.employees;
+create table emp as select employee_id from hr.employees;*/
+
+/*variable scope*/
+declare
+v_outer varchar(10):='outer';
+begin
+declare
+v_outer varchar(10) :='hello';
+
+begin
+dbms_output.put_line(v_outer||' '||'in inner block');
+end;
+dbms_output.put_line(v_outer||' '||'in outer block');
+end;
+/*looping constructs
+   1)loop
+    -----
+    ------
+   exit when condn
+   endloop;
+   
+   2)while comdn loop
+       ----------
+       ----------
+       endloop
+    3)for i in 1:5 loop
+       --------
+       --------
+       endloop;*/
+
+
+emp id,emp name,salary, job grade,
+a=30%
+b=20%
+c=10%else none
