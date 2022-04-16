@@ -1,0 +1,72 @@
+""" questiom
+Mr. Vincent works in a door mat manufacturing company. One day, he designed a new door mat with the following specifications:
+
+Mat size must be X. ( is an odd natural number, and  is  times .)
+The design should have 'WELCOME' written in the center.
+The design pattern should only use |, . and - characters.
+Sample Designs
+
+    Size: 7 x 21 
+    ---------.|.---------
+    ------.|..|..|.------
+    ---.|..|..|..|..|.---
+    -------WELCOME-------
+    ---.|..|..|..|..|.---
+    ------.|..|..|.------
+    ---------.|.---------
+    
+    Size: 11 x 33
+    ---------------.|.---------------
+    ------------.|..|..|.------------
+    ---------.|..|..|..|..|.---------
+    ------.|..|..|..|..|..|..|.------
+    ---.|..|..|..|..|..|..|..|..|.---
+    -------------WELCOME-------------
+    ---.|..|..|..|..|..|..|..|..|.---
+    ------.|..|..|..|..|..|..|.------
+    ---------.|..|..|..|..|.---------
+    ------------.|..|..|.------------
+    ---------------.|.---------------"""
+    
+solution code:
+n,m=(input().split())
+st="WELCOME"
+wel=int((int(m)-7)/2 )
+pa=".|."
+count=0
+for i in range(int(n)):
+    pat = (int(m) - (3 + 6 *i))//2
+    pat2 = (int(m) - (3 + 6 * (int(n)-i-1)))//2
+    for j in range(int(m)):
+        #print(i==n/2 and wel<=j<wel+7)
+        if i==int(n)//2 and wel<=j<wel+7:
+            print(st[j-wel],end="")
+        elif i<int(n)//2 and pat<=j<pat+3+6*i:
+            print(pa[count],end="")
+            count=count+1
+            if count>2:
+                count=0
+        elif i>int(n)//2 and pat2<=j<pat2+3+6*(int(n)-i-1):
+            print(pa[count], end="")
+            count = count + 1
+            if count > 2:
+                count = 0
+
+
+        else:
+         print("-",end="")
+    print()
+output:
+
+Input (stdin)
+
+Download
+7 21
+Your Output (stdout)
+---------.|.---------
+------.|..|..|.------
+---.|..|..|..|..|.---
+-------WELCOME-------
+---.|..|..|..|..|.---
+------.|..|..|.------
+---------.|.---------
